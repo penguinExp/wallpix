@@ -12,7 +12,7 @@ class ThemeService {
   ThemeMode get theme => _readFromBox() ? ThemeMode.dark : ThemeMode.light;
 
   void switchTheme() {
-    Get.changeThemeMode(_readFromBox() ? ThemeMode.light : ThemeMode.dark);
+    Get.changeThemeMode( _readFromBox() ? ThemeMode.light : ThemeMode.dark);
     _saveToStorage();
   }
 }
