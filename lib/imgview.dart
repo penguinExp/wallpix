@@ -13,10 +13,7 @@ class _PageState extends State<PageUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        // padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: ImgListView()
-      ),
+      body: ImgListView(),
     );
   }
 }
