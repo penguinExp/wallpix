@@ -179,6 +179,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  mix:
+    dependency: "direct main"
+    description:
+      name: mix
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.5"
   path:
     dependency: transitive
     description:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpix/imgview.dart';
+import 'package:mix/mix.dart';
 
 import 'utils/theme/apptheme.util.dart';
 import 'utils/theme/theme_service.util.dart';
@@ -15,7 +15,7 @@ class WallPix extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const PageUI(),
+        home: const Box(),
         theme: AppTheme.lightTheme(),
         darkTheme: AppTheme.darkTheme(),
         themeMode: ThemeService().theme,
