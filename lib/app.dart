@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpix/core/services/theme.service.dart';
-import 'package:wallpix/utils/themes/themes.util.dart';
+import 'core/services/theme.service.dart';
+import 'designs/designs.dart';
+
 
 class WallPix extends StatelessWidget {
   const WallPix({Key? key}) : super(key: key);
@@ -40,15 +42,23 @@ class _ChangeThemeState extends State<ChangeTheme> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: IconButton(
-          icon:
-              _isDark ? const Icon(Icons.nightlight) : const Icon(Icons.sunny),
-          onPressed: () {
-            ThemeService().toggleTheme();
-            setState(() {
-              _isDark = Get.isDarkMode ? true : false;
-            });
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DesignButton(
+                title: 'Download',
+                icon: _isDark ? SvgIcons.sunIcon : SvgIcons.nightIcon,
+                onTap: () {
+                  ThemeService().toggleTheme();
+                  setState(() {
+                    _isDark = Get.isDarkMode ? true : false;
+                  });
+                }),
+            SizedBox(
+              height: 25.h,
+            ),
+            const DesignIcon.backIcon(),
+          ],
         ),
       ),
     );

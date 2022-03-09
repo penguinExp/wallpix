@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallpix/utils/colors/dark.color.util.dart';
-import 'package:wallpix/utils/colors/light.color.util.dart';
+import '../colors/dark.color.util.dart';
+import '../colors/light.color.util.dart';
 
 class ThemeUtil {
   static ThemeData lightTheme() => ThemeData(

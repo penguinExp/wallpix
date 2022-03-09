@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../utils/colors/dark.color.util.dart';
-import '../../utils/colors/light.color.util.dart';
+import '../../designs/designs.dart';
+
+ThemeService themeService = ThemeService();
 
 class ThemeService {
   final _themeBox = GetStorage('themeMode');

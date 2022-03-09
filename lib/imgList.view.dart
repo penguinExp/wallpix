@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallpix/models/img.model.dart';
 import 'core/keys.core.dart';
-import 'models/model.dart';
-import 'utils/assets/ktransperentimage.util.dart';
+import 'designs/designs.dart';
 
 class ImgListView extends StatelessWidget {
   ImgListView({Key? key}) : super(key: key);
