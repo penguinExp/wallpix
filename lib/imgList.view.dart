@@ -18,9 +18,9 @@ class ImgListView extends StatelessWidget {
       builder: (context, snapshot) {
         return snapshot.connectionState == ConnectionState.done
             ? GridView.count(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                ),
+                // padding: const EdgeInsets.symmetric(
+                //   horizontal: 30,
+                // ),
                 crossAxisCount: 2,
                 // shrinkWrap: true,
                 // crossAxisSpacing: 0.1,

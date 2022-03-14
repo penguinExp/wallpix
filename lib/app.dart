@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wallpix/views/home/home.view.dart';
 import 'core/services/theme.service.dart';
 import 'designs/designs.dart';
 
@@ -15,7 +16,7 @@ class WallPix extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const ChangeTheme(),
+        home: HomeView(),
         theme: ThemeUtil.lightTheme(),
         darkTheme: ThemeUtil.darkTheme(),
         themeMode: ThemeService().theme,

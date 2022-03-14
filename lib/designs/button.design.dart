@@ -53,11 +53,17 @@ class DesignButton extends StatelessWidget {
                 ),
               )
             : isfaint
-                ? Center(child: DesignText.headingThreeSB(title))
+                ? Center(
+                    child: DesignText.headingThreeSB(
+                      title,
+                    ),
+                  )
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      DesignText.headingThreeSB(title),
+                      DesignText.headingThreeSB(
+                        title,
+                      ),
                       SizedBox(
                         width: 15.w,
                       ),

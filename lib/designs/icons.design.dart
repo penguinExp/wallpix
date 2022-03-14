@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallpix/core/services/theme.service.dart';
 
 import 'designs.dart';
 
@@ -30,6 +33,14 @@ class DesignIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+      height: 24.w,
+      width: 24.w,
+      child: SvgPicture.asset(
+        iconPath,
+        color: themeService.primery(),
+        fit: BoxFit.contain,
+      ),
+    );
   }
 }
