@@ -13,3 +13,6 @@ export 'utils/fonts/fonts.utils.designs.dart';
 
 //thems
 export 'utils/theme/themes.utils.designs.dart';
+
+//presets
+export 'package:wallpix/designs/presets/text.presets.designs.dart';
