@@ -1,4 +1,5 @@
-import 'package:wallpix/models/img_src.model.dart';
+
+import 'img_src.model.dart';
 
 class Img {
   int id;

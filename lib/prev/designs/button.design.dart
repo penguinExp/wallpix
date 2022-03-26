@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../core/services/theme.service.dart';
+import '../../prev/services/theme.service.dart';
 import 'icons.design.dart';
 import 'text.design.dart';
 

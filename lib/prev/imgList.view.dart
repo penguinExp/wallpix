@@ -1,10 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:wallpix/models/img.model.dart';
-import 'core/keys.core.dart';
-import 'designs/designs.dart';
+import 'package:wallpix/prev/designs/utils/assets/ktransperentimage.util.dart';
+import 'package:wallpix/prev/models/img.model.dart';
+import '../core/keys.core.dart';
 
 class ImgListView extends StatelessWidget {
   ImgListView({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class ImgListView extends StatelessWidget {
         child: FutureBuilder(
       future: getImgs(imgList: imgList),
       builder: (context, snapshot) {
+        // return hasNetwork() ? const Text('data') :
         return snapshot.connectionState == ConnectionState.done
             ? GridView.count(
                 // padding: const EdgeInsets.symmetric(
@@ -59,11 +61,20 @@ class ImgListView extends StatelessWidget {
   Future<void> getImgs({required List<Img> imgList}) async {
     http.Response response = await http.get(
         Uri.parse("https://api.pexels.com/v1/curated?per_page=80&page=1"),
-        headers: {"Authorization": accessKey});
+        headers: {"Authorization": 'accessKey'});
     Map<String, dynamic> jsonData = jsonDecode(response.body);
     List<dynamic> imgBody = jsonData['photos'];
     for (var element in imgBody) {
       imgList.add(Img.fromJson(element));
+    }
+  }
+
+  Future<bool> hasNetwork() async {
+    try {
+      final result = await InternetAddress.lookup('example.com');
+      return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+    } on SocketException catch (_) {
+      return false;
     }
   }
 }

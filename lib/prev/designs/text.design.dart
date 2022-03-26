@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Text Styles
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wallpix/core/services/theme.service.dart';
+import 'package:wallpix/prev/services/theme.service.dart';
 
 import 'designs.dart';
 

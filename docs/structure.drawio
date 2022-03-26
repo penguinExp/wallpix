@@ -1,35 +1,68 @@
 <mxfile host="65bd71144e">
     <diagram id="JSw5zDWlwoklnqaze3Ik" name="Page-1">
-        <mxGraphModel dx="455" dy="324" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1083" dy="-9" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="3" value="Util" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="281" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="12" value="Design System" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="505" y="433" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Design System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="283" y="240" width="60" height="30" as="geometry"/>
+                <mxCell id="13" value="Design Utils" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="519" y="527" width="92" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="library export" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="283" y="289" width="60" height="30" as="geometry"/>
+                <mxCell id="14" value="Core" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="433" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="calling in ui" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="283" y="338" width="60" height="30" as="geometry"/>
+                <mxCell id="15" value="Mdels" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="374" y="525" width="92" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="icons" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="386" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="16" value="Keys" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="374" y="589" width="92" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="colors" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="454" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="17" value="consts" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="374" y="653" width="92" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="themes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="522" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="18" value="Widgets" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="374" y="717" width="92" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="widgets" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="590" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="19" value="views" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="433" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="text styles" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="658" y="191" width="60" height="30" as="geometry"/>
+                <mxCell id="20" value="View" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="229" y="525" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Ctrls" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="229" y="589" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="decoupled UI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="229" y="653" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Logic" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="231" y="717" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Backend" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="231" y="781" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Local Storage" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="231" y="845" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Views" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;arcSize=20;fontSize=20;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-214" y="594" width="110" height="58" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Widgets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#FFFFFF;strokeColor=#B09500;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-52" y="615" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Backend Calls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#FFFFFF;strokeColor=#B09500;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-84" y="693" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Local Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#FFFFFF;strokeColor=#B09500;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-246" y="693" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="State Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#FFFFFF;strokeColor=#B09500;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-57" y="539" width="92" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#FFFFFF;strokeColor=#B09500;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="-338" y="615" width="92" height="44" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
