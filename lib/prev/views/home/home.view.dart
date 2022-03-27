@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpix/core/keys.core.dart';
 import 'package:wallpix/prev/designs/text.design.dart';
 import 'package:wallpix/prev/designs/text_form.design.dart';
 import 'package:wallpix/prev/imgList.view.dart';

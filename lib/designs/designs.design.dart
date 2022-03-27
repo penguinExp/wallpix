@@ -16,3 +16,8 @@ export 'utils/theme/themes.utils.designs.dart';
 
 //presets
 export 'package:wallpix/designs/presets/text.presets.designs.dart';
+
+//designs
+export 'svg_icons.designs.dart';
+export 'text_styles.designs.dart';
+export 'buttons.designs.dart';
