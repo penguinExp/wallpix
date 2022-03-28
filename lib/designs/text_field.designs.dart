@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallpix/designs/designs.design.dart';
 
-import '../core/core.core.dart';
+import '../core/core.dart';
 
 class DesignTextField extends StatelessWidget {
   final TextEditingController textEditingController;
