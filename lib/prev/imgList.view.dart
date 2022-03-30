@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallpix/core/core.dart';
 import 'package:wallpix/prev/designs/utils/assets/ktransperentimage.util.dart';
 import 'package:wallpix/prev/models/img.model.dart';
 
@@ -60,20 +61,21 @@ class ImgListView extends StatelessWidget {
   Future<void> getImgs({required List<Img> imgList}) async {
     http.Response response = await http.get(
         Uri.parse("https://api.pexels.com/v1/curated?per_page=80&page=1"),
-        headers: {"Authorization": 'accessKey'});
-    Map<String, dynamic> jsonData = jsonDecode(response.body);
-    List<dynamic> imgBody = jsonData['photos'];
-    for (var element in imgBody) {
-      imgList.add(Img.fromJson(element));
-    }
+        headers: {"Authorization": kAccessKey});
+    log(response.body.toString());
+    // Map<String, dynamic> jsonData = jsonDecode(response.body);
+    // List<dynamic> imgBody = jsonData['photos'];
+    // for (var element in imgBody) {
+    //   imgList.add(Img.fromJson(element));
+    // }
   }
 
-  Future<bool> hasNetwork() async {
-    try {
-      final result = await InternetAddress.lookup('example.com');
-      return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
-    } on SocketException catch (_) {
-      return false;
-    }
-  }
+  // Future<bool> hasNetwork() async {
+  //   try {
+  //     final result = await InternetAddress.lookup('example.com');
+  //     return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+  //   } on SocketException catch (_) {
+  //     return false;
+  //   }
+  // }
 }
