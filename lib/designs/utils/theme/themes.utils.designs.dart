@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallpix/designs/designs.design.dart';
+
+import '../../designs.design.dart';
 
 class ThemeUtil {
   static ThemeData lightTheme() => ThemeData().copyWith(

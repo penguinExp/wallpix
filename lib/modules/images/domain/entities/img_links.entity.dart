@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class CuratedLinks extends Equatable {
-  const CuratedLinks({
+class ImgLinksEntity extends Equatable {
+  const ImgLinksEntity({
     required this.download,
   });
 

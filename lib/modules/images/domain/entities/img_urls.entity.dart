@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-class CuratedUrls extends Equatable {
+class ImgUrlsEntity extends Equatable {
   final String raw;
   final String full;
   final String regular;
   final String small;
   final String smallS3;
 
-  const CuratedUrls({
+  const ImgUrlsEntity({
     required this.raw,
     required this.full,
     required this.regular,

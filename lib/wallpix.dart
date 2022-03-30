@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpix/core/routes/routes.core.dart';
+import 'core/core.dart';
+
 
 class WallPix extends StatelessWidget {
   const WallPix({Key? key}) : super(key: key);

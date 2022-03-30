@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallpix/designs/designs.design.dart';
+import '../../designs/designs.design.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
