@@ -17,4 +17,6 @@ class ImgUrlsEntity extends Equatable {
 
   @override
   List<Object?> get props => [raw, full, regular, small, smallS3];
+
+  fromJson(json) {}
 }

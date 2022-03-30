@@ -1,15 +1,12 @@
-class Links {
-  Links({
-    required this.download,
-  });
+import 'package:wallpix/modules/images/domain/domain.images.dart';
 
-  String download;
+class ImageLinksModel extends ImgLinksEntity {
+  const ImageLinksModel({
+    required String download,
+  }) : super(download: download);
 
-  factory Links.fromJson(Map<String, dynamic> json) => Links(
+  factory ImageLinksModel.fromJson(Map<String, dynamic> json) =>
+      ImageLinksModel(
         download: json["download"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "download": download,
-      };
 }

@@ -1,27 +1,21 @@
-import 'dart:convert';
+import 'package:wallpix/modules/images/data/models/img_links.model.dart';
+import 'package:wallpix/modules/images/data/models/img_url.model.dart';
+import 'package:wallpix/modules/images/domain/domain.images.dart';
 
-import 'img_links.model.dart';
-import 'img_url.model.dart';
+class ImgModel extends ImgEntity {
+  const ImgModel({
+    required ImageUrlModels urls,
+    required ImageLinksModel links,
+    required String id,
+    required int likes,
+  }) : super(urls: urls, links: links, id: id, likes: likes);
 
-class Img {
-  Img({
-    required this.id,
-    required this.urls,
-    required this.links,
-    required this.likes,
-  });
-
-  String id;
-  Urls urls;
-  Links links;
-  int likes;
-
-  factory Img.fromJson(Map<String, dynamic> json) => Img(
+  factory ImgModel.fromJson(Map<String, dynamic> json) => ImgModel(
         id: json["id"],
-        urls: Urls.fromJson(json["urls"]),
-        links: Links.fromJson(json["links"]),
+        urls: json["url"],
+        links: json["links"],
         likes: json["likes"],
+        // urls: urls(json["urls"]),
+        // links: links.fromJson(json["links"]),
       );
-
-  static Img imgFromJson(String str) => Img.fromJson(json.decode(str));
 }

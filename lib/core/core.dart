@@ -14,3 +14,6 @@ export 'routes/routes.core.dart';
 
 // usecases
 export 'usecases/img_usecase.dart';
+
+// platform
+export 'platform/network_info.core.dart';

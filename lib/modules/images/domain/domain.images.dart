@@ -9,3 +9,5 @@ export 'entities/img_urls.entity.dart';
 export 'repositories/img_repository.dart';
 
 // Usecases
+export 'usecases/get_curated_imgs.usecase.dart';
+export 'usecases/search_imgs.usecase.dart';
