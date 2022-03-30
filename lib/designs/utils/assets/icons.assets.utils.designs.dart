@@ -1,8 +1,8 @@
 class IconAssets {
-  static const String backIcon = 'assets/svgIcons/backIcon.svg';
-  static const String crossIcon = 'assets/svgIcons/crossIcon.svg';
-  static const String downloadIcon = 'assets/svgIcons/downloadIcon.svg';
-  static const String nightIcon = 'assets/svgIcons/nightIcon.svg';
-  static const String searchIcon = 'assets/svgIcons/searchIcon.svg';
-  static const String sunIcon = 'assets/svgIcons/sunIcon.svg';
+  static const String backIcon = 'assets/icons/backIcon.svg';
+  static const String crossIcon = 'assets/icons/crossIcon.svg';
+  static const String downloadIcon = 'assets/icons/downloadIcon.svg';
+  static const String nightIcon = 'assets/icons/nightIcon.svg';
+  static const String searchIcon = 'assets/icons/searchIcon.svg';
+  static const String sunIcon = 'assets/icons/sunIcon.svg';
 }
