@@ -7,6 +7,10 @@ import '../../../../core/errors/exception.core.dart';
 import '../models/img.model.dart';
 
 abstract class ImageDataSource {
+  /// Calls the 'https://api.unsplash.com/search/photos?client_id=$kAccessKey&page=$page&query=$keyword' url
+  /// 
+  /// Throws a [serverException] for all the errors
+
   Future<List<ImgModel>> searchImgs(String query, int page);
   Future<List<ImgModel>> getCuratedImgs(int page);
 }

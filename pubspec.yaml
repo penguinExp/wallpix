@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   analyzer: ^3.4.1
-  connectivity: ^3.0.6
+  data_connection_checker_tv: ^0.3.5-nullsafety
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   equatable: ^2.0.3
