@@ -22,29 +22,36 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
   ImgsBloc({
     required this.getCuratedImgs,
     required this.searchImgs,
-  }) : super(Empthy()) {
+  }) : super(Loading()) {
     on<GetCuratedImgsEvent>(
       (event, emit) async {
-        Loading();
+        // emit(Loading());
         final failureOrImgs =
             await getCuratedImgs(CuratedParms(page: event.page));
-        _eitherFoldOfErrOrImgs(failureOrImgs);
+        _eitherFoldOfErrOrImgs(failureOrImgs, emit);
       },
     );
     on<SearchImgsEvent>(
       (event, emit) async {
-        Loading();
+        emit(Loading());
         final failureOrImgs = await searchImgs(
             SearchParams(query: event.query, page: event.page));
-        _eitherFoldOfErrOrImgs(failureOrImgs);
+        _eitherFoldOfErrOrImgs(failureOrImgs, emit);
       },
     );
   }
 
-  void _eitherFoldOfErrOrImgs(Either<Failure, List<ImgEntity>> failureOrImg) {
-    failureOrImg.fold(
-      (failure) => mapFailureToMsg(failure),
-      (imgs) => Loaded(imgs: imgs),
+  void _eitherFoldOfErrOrImgs(
+      Either<Failure, List<ImgEntity>> failureOrImgs, Emitter<ImgsState> emit) {
+    failureOrImgs.fold(
+      (failure) => emit(
+        Error(
+          errorMsg: mapFailureToMsg(failure),
+        ),
+      ),
+      (imgs) => emit(
+        Loaded(imgs: imgs),
+      ),
     );
   }
 

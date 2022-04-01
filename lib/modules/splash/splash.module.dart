@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wallpix/modules/images/presentation/views/img.view.dart';
 import '../../designs/designs.design.dart';
 
 class SplashView extends StatefulWidget {
@@ -13,6 +15,9 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const ImgView());
+    });
     return Scaffold(
       backgroundColor: DarkThemeColors.background,
       body: Center(

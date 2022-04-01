@@ -7,8 +7,6 @@ abstract class ImgsState extends Equatable {
   List<Object> get props => [];
 }
 
-class Empthy extends ImgsState {}
-
 class Loading extends ImgsState {}
 
 class Loaded extends ImgsState {

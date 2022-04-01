@@ -12,8 +12,8 @@ class ImgModel extends ImgEntity {
 
   factory ImgModel.fromJson(Map<String, dynamic> json) => ImgModel(
         id: json["id"],
-        urls: json["url"],
-        links: json["links"],
+        urls: ImageUrlModels.fromJson(json['urls']),
+        links: ImageLinksModel.fromJson(json['links']),
         likes: json["likes"],
         // urls: urls(json["urls"]),
         // links: links.fromJson(json["links"]),
