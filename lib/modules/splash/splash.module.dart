@@ -15,8 +15,8 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const ImgView());
+    Future.delayed(const Duration(seconds: 6), () {
+      Get.off(() => const ImgView());
     });
     return Scaffold(
       backgroundColor: DarkThemeColors.background,
