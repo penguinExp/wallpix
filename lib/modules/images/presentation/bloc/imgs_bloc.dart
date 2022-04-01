@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:wallpix/core/core.dart';
 import 'package:wallpix/modules/images/domain/domain.images.dart';
@@ -6,12 +7,12 @@ import 'package:wallpix/modules/images/domain/domain.images.dart';
 part 'imgs_event.dart';
 part 'imgs_state.dart';
 
-const String serverFailure = 'Server error occured';
-const String dataParsingFailure =
+const String _serverFailure = 'Server error occured';
+const String _dataParsingFailure =
     'There is an error occured while getting the data from the server/API. Please consider updating the WallPix';
-const String connectityFailure =
+const String _connectityFailure =
     "Hey👋, It seems you lost 😵 your internet connection";
-const String searchFailure =
+const String _searchFailure =
     "WallPix couldn’t find anything for “Xyzzffsczsf”. Try to refine your search.";
 
 class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
@@ -24,19 +25,41 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
   }) : super(Empthy()) {
     on<GetCuratedImgsEvent>(
       (event, emit) async {
-        final failureOrImgs = await getCuratedImgs(const CuratedParms(page: 1));
-        failureOrImgs.fold(
-          (failure) => UnimplementedError(),
-          (imgs) => Loaded(imgs: imgs),
-        );
+        Loading();
+        final failureOrImgs =
+            await getCuratedImgs(CuratedParms(page: event.page));
+        _eitherFoldOfErrOrImgs(failureOrImgs);
       },
     );
     on<SearchImgsEvent>(
-      (event, emit) {},
+      (event, emit) async {
+        Loading();
+        final failureOrImgs = await searchImgs(
+            SearchParams(query: event.query, page: event.page));
+        _eitherFoldOfErrOrImgs(failureOrImgs);
+      },
     );
   }
 
-  // ImgsBloc() : super(Empthy()) {
-  //   on<ImgsEvent>((event, emit) {});
-  // }
+  void _eitherFoldOfErrOrImgs(Either<Failure, List<ImgEntity>> failureOrImg) {
+    failureOrImg.fold(
+      (failure) => mapFailureToMsg(failure),
+      (imgs) => Loaded(imgs: imgs),
+    );
+  }
+
+  String mapFailureToMsg(Failure failure) {
+    switch (failure.runtimeType) {
+      case ServerFailure:
+        return _serverFailure;
+      case DataParsingFailure:
+        return _dataParsingFailure;
+      case ConnectivityFailure:
+        return _connectityFailure;
+      case SearchFailure:
+        return _searchFailure;
+      default:
+        return 'Unexcepted Failure :(';
+    }
+  }
 }
