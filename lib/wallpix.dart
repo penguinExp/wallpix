@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'core/core.dart';
 
-
 class WallPix extends StatelessWidget {
   const WallPix({Key? key}) : super(key: key);
 
@@ -15,6 +14,12 @@ class WallPix extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         getPages: WallPixRoutes.getPages,
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: themeService.backGround(),
+        ),
+        darkTheme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: themeService.backGround(),
+        ),
         builder: ((context, child) {
           ScreenUtil.setContext(context);
           return MediaQuery(data: MediaQuery.of(context), child: child!);

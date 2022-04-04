@@ -92,7 +92,7 @@ GridView _imglist({
                 child: FadeInImage.memoryNetwork(
                   fit: BoxFit.contain,
                   placeholder: kTransparentImage,
-                  image: img.urls.full,
+                  image: img.urls.small,
                 ),
               ),
             ),

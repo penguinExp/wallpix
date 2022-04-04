@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:wallpix/core/core.dart';
 import 'package:wallpix/designs/designs.design.dart';
+import 'package:wallpix/modules/images/presentation/controllers/controllers/theme.ctrl.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({Key? key}) : super(key: key);
+  AppBarWidget({Key? key}) : super(key: key);
+  final ThemeController controller =
+      Get.put<ThemeController>(ThemeController());
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: themeService.backGround(),
       height: 125.h,
       width: 375.w,
       child: Padding(
@@ -20,7 +25,6 @@ class AppBarWidget extends StatelessWidget {
               children: [
                 DesignText.headingTwo(text: 'WallPix'),
                 DesignText.headingTwo(
-                  
                   text: '.',
                   color: themeService.highLight(),
                 ),
@@ -28,9 +32,13 @@ class AppBarWidget extends StatelessWidget {
             ),
             Expanded(child: Container()),
             InkWell(
-              child: const DesignIcon.nightIcon(),
+              child: Obx(
+                () => controller.isDarkMode.value
+                    ? const DesignIcon.nightIcon()
+                    : const DesignIcon.sunIcon(),
+              ),
               onTap: () {
-                themeService.toggleTheme();
+                controller.toggleTheme();
               },
             )
           ],
