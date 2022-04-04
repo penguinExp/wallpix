@@ -4,8 +4,8 @@ import 'package:wallpix/core/core.dart';
 import 'package:wallpix/modules/images/data/dataSource/img_data_source.data.dart';
 import 'package:wallpix/modules/images/data/repositories/img_repository_impl.dart';
 import 'package:wallpix/modules/images/domain/domain.images.dart';
-import 'package:wallpix/modules/images/presentation/bloc/imgs_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallpix/modules/images/presentation/controllers/bloc/imgs_bloc.dart';
 
 /// Service locator
 final sl = GetIt.instance;

@@ -20,6 +20,7 @@ class AppBarWidget extends StatelessWidget {
               children: [
                 DesignText.headingTwo(text: 'WallPix'),
                 DesignText.headingTwo(
+                  
                   text: '.',
                   color: themeService.highLight(),
                 ),
@@ -28,7 +29,9 @@ class AppBarWidget extends StatelessWidget {
             Expanded(child: Container()),
             InkWell(
               child: const DesignIcon.nightIcon(),
-              onTap: () {},
+              onTap: () {
+                themeService.toggleTheme();
+              },
             )
           ],
         ),
