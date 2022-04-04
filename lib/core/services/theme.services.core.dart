@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:wallpix/designs/designs.design.dart';
+import '../../designs/designs.design.dart';
 
 ThemeService themeService = ThemeService();
 
@@ -31,13 +31,15 @@ class ThemeService {
 
   ThemeMode get _theme => _isdarkMode() ? ThemeMode.dark : ThemeMode.light;
 
-  void toggleTheme() {
+  bool toggleTheme() {
     if (_theme == ThemeMode.dark) {
       Get.changeThemeMode(ThemeMode.light);
       _storeThemeMode(isDark: false);
+      return false;
     } else {
       Get.changeThemeMode(ThemeMode.dark);
       _storeThemeMode(isDark: true);
+      return true;
     }
   }
 

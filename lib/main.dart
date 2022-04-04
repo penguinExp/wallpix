@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'wallpix.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Get.put<GetStorage>(GetStorage());

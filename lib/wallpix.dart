@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpix/modules/splash/splash.module.dart';
+import 'core/core.dart';
 
 class WallPix extends StatelessWidget {
   const WallPix({Key? key}) : super(key: key);
@@ -12,10 +12,14 @@ class WallPix extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const SplashView(),
-        // theme: ThemeUtil.lightTheme(),
-        // darkTheme: ThemeUtil.darkTheme(),
-        // themeMode: ThemeService().theme,
+        initialRoute: '/',
+        getPages: WallPixRoutes.getPages,
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: themeService.backGround(),
+        ),
+        darkTheme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: themeService.backGround(),
+        ),
         builder: ((context, child) {
           ScreenUtil.setContext(context);
           return MediaQuery(data: MediaQuery.of(context), child: child!);
