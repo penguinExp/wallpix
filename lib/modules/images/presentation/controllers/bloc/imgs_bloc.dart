@@ -25,7 +25,7 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
   }) : super(Loading()) {
     on<GetCuratedImgsEvent>(
       (event, emit) async {
-        // emit(Loading());
+        emit(Loading());
         final failureOrImgs =
             await getCuratedImgs(CuratedParms(page: event.page));
         _eitherFoldOfErrOrImgs(failureOrImgs, emit);

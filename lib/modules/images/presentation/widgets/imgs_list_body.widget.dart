@@ -21,14 +21,18 @@ class _ImgsListViewBodyState extends State<ImgsListViewBody> {
   void initState() {
     di.init();
     _controller.addListener(() {
-      if (_controller.position.atEdge) {
-        bool _isAtBtm = _controller.position.pixels != 0;
-        if (_isAtBtm) {
-          page++;
-          BlocProvider.of<ImgsBloc>(context).add(
-            GetCuratedImgsEvent(page: page),
-          );
-        }
+      // if (_controller.position.atEdge) {
+      //   bool _isAtBtm = _controller.position.pixels != 0;
+      //   if (_isAtBtm) {
+      //     page++;
+      //     BlocProvider.of<ImgsBloc>(context).add(
+      //       GetCuratedImgsEvent(page: page),
+      //     );
+      //   }
+      // }
+      if (_controller.position.pixels == _controller.position.maxScrollExtent) {
+        page++;
+        
       }
     });
     super.initState();
