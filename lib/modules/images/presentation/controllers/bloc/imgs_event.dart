@@ -13,12 +13,6 @@ class GetCuratedImgsEvent extends ImgsEvent {
   const GetCuratedImgsEvent({required this.page});
 }
 
-class AddToCuratedImgsEvent extends ImgsEvent {
-   final int page;
-
-  const AddToCuratedImgsEvent({required this.page});
-}
-
 class SearchImgsEvent extends ImgsEvent {
   final int page;
   final String query;

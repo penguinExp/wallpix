@@ -20,6 +20,7 @@ void init() {
     ),
   );
 
+
   //* usecases
   sl.registerLazySingleton(() => GetCuratedImgs(sl()));
   sl.registerLazySingleton(() => SearchImgs(sl()));

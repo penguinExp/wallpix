@@ -7,30 +7,18 @@ abstract class ImgsState extends Equatable {
   List<Object> get props => [];
 }
 
-class Loading extends ImgsState {}
+class LoadingState extends ImgsState {}
 
-class Loaded extends ImgsState {
-  final List<ImgEntity> imgs;
+class LoadingMoreState extends ImgsState {}
 
-  const Loaded({required this.imgs});
+class LoadedState extends ImgsState {}
 
-  @override
-  List<Object> get props => [imgs];
-}
+class LoadedMoreState extends ImgsState {}
 
-class LoadMore extends ImgsState {
-  final List<ImgEntity> imgs;
-
-  const LoadMore({required this.imgs});
-
-  @override
-  List<Object> get props => [imgs];
-}
-
-class Error extends ImgsState {
+class ErrorState extends ImgsState {
   final String errorMsg;
 
-  const Error({required this.errorMsg});
+  const ErrorState({required this.errorMsg});
 
   @override
   List<Object> get props => [errorMsg];

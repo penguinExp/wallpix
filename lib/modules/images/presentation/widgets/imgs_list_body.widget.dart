@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wallpix/core/core.dart';
 import 'package:wallpix/modules/images/domain/domain.images.dart';
 import 'package:wallpix/modules/images/injection_container.images.dart' as di;
 import 'package:wallpix/modules/images/presentation/controllers/bloc/imgs_bloc.dart';
@@ -16,23 +19,15 @@ class ImgsListViewBody extends StatefulWidget {
 class _ImgsListViewBodyState extends State<ImgsListViewBody> {
   final ScrollController _controller = ScrollController();
   int page = 1;
+  final List<ImgEntity> imgs = ImgsList.imgsList;
 
   @override
   void initState() {
     di.init();
     _controller.addListener(() {
-      // if (_controller.position.atEdge) {
-      //   bool _isAtBtm = _controller.position.pixels != 0;
-      //   if (_isAtBtm) {
-      //     page++;
-      //     BlocProvider.of<ImgsBloc>(context).add(
-      //       GetCuratedImgsEvent(page: page),
-      //     );
-      //   }
-      // }
       if (_controller.position.pixels == _controller.position.maxScrollExtent) {
         page++;
-        
+        log(page.toString());
       }
     });
     super.initState();
@@ -48,17 +43,17 @@ class _ImgsListViewBodyState extends State<ImgsListViewBody> {
   Widget build(BuildContext context) {
     return BlocBuilder<ImgsBloc, ImgsState>(
       builder: ((context, state) {
-        if (state is Loading) {
+        if (state is LoadingState) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (state is Loaded) {
+        } else if (state is LoadedState) {
           return _imglist(
             context: context,
-            list: state.imgs,
+            list: imgs,
             controller: _controller,
           );
-        } else if (state is Error) {
+        } else if (state is ErrorState) {
           return Center(
             child: DesignText.headingThree(text: state.errorMsg),
           );

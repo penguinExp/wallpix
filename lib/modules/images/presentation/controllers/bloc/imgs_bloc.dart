@@ -18,14 +18,15 @@ const String _searchFailure =
 class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
   final GetCuratedImgs getCuratedImgs;
   final SearchImgs searchImgs;
+  final List<ImgEntity> imgsList = ImgsList.imgsList;
 
   ImgsBloc({
     required this.getCuratedImgs,
     required this.searchImgs,
-  }) : super(Loading()) {
+  }) : super(LoadingState()) {
     on<GetCuratedImgsEvent>(
       (event, emit) async {
-        emit(Loading());
+        emit(LoadingState());
         final failureOrImgs =
             await getCuratedImgs(CuratedParms(page: event.page));
         _eitherFoldOfErrOrImgs(failureOrImgs, emit);
@@ -33,7 +34,7 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
     );
     on<SearchImgsEvent>(
       (event, emit) async {
-        emit(Loading());
+        emit(LoadingState());
         final failureOrImgs = await searchImgs(
             SearchParams(query: event.query, page: event.page));
         _eitherFoldOfErrOrImgs(failureOrImgs, emit);
@@ -44,15 +45,14 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
   void _eitherFoldOfErrOrImgs(
       Either<Failure, List<ImgEntity>> failureOrImgs, Emitter<ImgsState> emit) {
     failureOrImgs.fold(
-      (failure) => emit(
-        Error(
-          errorMsg: mapFailureToMsg(failure),
-        ),
-      ),
-      (imgs) => emit(
-        Loaded(imgs: imgs),
-      ),
-    );
+        (failure) => emit(
+              ErrorState(
+                errorMsg: mapFailureToMsg(failure),
+              ),
+            ), (imgs) {
+      imgsList.addAll(imgs);
+      emit(LoadedState());
+    });
   }
 
   String mapFailureToMsg(Failure failure) {
