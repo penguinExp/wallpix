@@ -7,6 +7,8 @@ import 'package:wallpix/modules/images/domain/domain.images.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpix/modules/images/presentation/controllers/bloc/imgs_bloc.dart';
 
+
+
 /// Service locator
 final sl = GetIt.instance;
 

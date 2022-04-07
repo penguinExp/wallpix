@@ -39,6 +39,9 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
         _eitherFoldOfErrOrImgs(failureOrImgs, emit);
       },
     );
+    on<LoadMoreEvent>(((event, emit) async {
+      emit(LoadingMoreState());
+    }));
   }
 
   void _eitherFoldOfErrOrImgs(
@@ -70,3 +73,5 @@ class ImgsBloc extends Bloc<ImgsEvent, ImgsState> {
     }
   }
 }
+
+mixin LoadMoreState {}

@@ -18,15 +18,6 @@ class Loaded extends ImgsState {
   List<Object> get props => [imgs];
 }
 
-class LoadMore extends ImgsState {
-  final List<ImgEntity> imgs;
-
-  const LoadMore({required this.imgs});
-
-  @override
-  List<Object> get props => [imgs];
-}
-
 class Error extends ImgsState {
   final String errorMsg;
 
@@ -35,3 +26,5 @@ class Error extends ImgsState {
   @override
   List<Object> get props => [errorMsg];
 }
+
+class LoadingMoreState extends ImgsState {}
