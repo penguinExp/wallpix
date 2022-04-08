@@ -28,14 +28,14 @@ abstract class ThemeServiceContract {
   /// sets the value for [secBackground] color used in DesignSystem
   Color secBackground();
 
-  /// sets the value for [tertBackground] color used in DesignSystem
-  Color tertBackground();
+  /// sets the value for [tertiaryBackground] color used in DesignSystem
+  Color tertiaryBackground();
 
-  /// sets the value for [primery] color used in DesignSystem
-  Color primery();
+  /// sets the value for [primary] color used in DesignSystem
+  Color primary();
 
-  /// sets the value for [secPrimery] color used in DesignSystem
-  Color secPrimery();
+  /// sets the value for [secPrimary] color used in DesignSystem
+  Color secPrimary();
 
   /// sets the value for [highLight] color used in DesignSystem
   Color highLight();

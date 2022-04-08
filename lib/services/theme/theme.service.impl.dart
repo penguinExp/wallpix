@@ -61,22 +61,22 @@ class ThemeServiceImpl implements ThemeServiceContract {
       : LightThemeColors.highLight;
 
   @override
-  Color primery() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.primery
-      : LightThemeColors.primery;
+  Color primary() => themeMode == ThemeMode.dark
+      ? DarkThemeColors.primary
+      : LightThemeColors.primary;
 
   @override
   Color secBackground() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.secBackground
-      : LightThemeColors.secBackground;
+      ? DarkThemeColors.secondaryBackground
+      : LightThemeColors.secondaryBackground;
 
   @override
-  Color secPrimery() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.secPrimery
-      : LightThemeColors.secPrimery;
+  Color secPrimary() => themeMode == ThemeMode.dark
+      ? DarkThemeColors.secPrimary
+      : LightThemeColors.secPrimary;
 
   @override
-  Color tertBackground() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.tertBackground
-      : LightThemeColors.tertBackground;
+  Color tertiaryBackground() => themeMode == ThemeMode.dark
+      ? DarkThemeColors.tertiaryBackground
+      : LightThemeColors.tertiaryBackground;
 }
