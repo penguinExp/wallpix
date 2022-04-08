@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:wallpix/designs/designs.design.dart';
+import 'package:wallpix/designs/designs.e.dart';
 
 import '../../core/services/theme.service.c.dart';
 
+final ThemeServiceImpl themeServiceImpl = ThemeServiceImpl();
+
 class ThemeServiceImpl implements ThemeServiceContract {
+  /// Singleton for theme service impl
+  ThemeServiceImpl._();
+
+  static final ThemeServiceImpl _themeServiceImpl =
+      ThemeServiceImpl._();
+
+  factory ThemeServiceImpl() {
+    return _themeServiceImpl;
+  }
+
   String themeModeKey = 'isDarkMode';
 
   @override

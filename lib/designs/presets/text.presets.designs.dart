@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../designs.design.dart';
+import '../designs.e.dart';
 
 class TextPresets {
   static TextStyle headingOne(Color? color) => FontsUtil.nunito(
