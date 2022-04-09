@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'package:get_storage/get_storage.dart';
 
 
@@ -22,25 +20,5 @@ abstract class ThemeServiceContract {
   /// Dependency: Uses Get.changeThemeMode to toggle between themes
   toggleThemeMode();
 
-  /// sets the value for [background] color used in DesignSystem
-  Color backGround();
-
-  /// sets the value for [secBackground] color used in DesignSystem
-  Color secBackground();
-
-  /// sets the value for [tertiaryBackground] color used in DesignSystem
-  Color tertiaryBackground();
-
-  /// sets the value for [primary] color used in DesignSystem
-  Color primary();
-
-  /// sets the value for [secPrimary] color used in DesignSystem
-  Color secPrimary();
-
-  /// sets the value for [highLight] color used in DesignSystem
-  Color highLight();
-
-  /// sets the value for [error] color used in DesignSystem
-  Color error();
 }
 

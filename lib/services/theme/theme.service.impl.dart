@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:wallpix/designs/designs.e.dart';
 
 import '../../core/services/theme.service.c.dart';
 
@@ -11,8 +12,7 @@ class ThemeServiceImpl implements ThemeServiceContract {
   /// Singleton for theme service impl
   ThemeServiceImpl._();
 
-  static final ThemeServiceImpl _themeServiceImpl =
-      ThemeServiceImpl._();
+  static final ThemeServiceImpl _themeServiceImpl = ThemeServiceImpl._();
 
   factory ThemeServiceImpl() {
     return _themeServiceImpl;
@@ -48,47 +48,16 @@ class ThemeServiceImpl implements ThemeServiceContract {
       Get.changeThemeMode(ThemeMode.light);
       // Get opposite of the current theme mode
       storeThemeMode(isDarkMode: false);
+      log(themeMode.toString());
     } else {
       Get.changeThemeMode(ThemeMode.dark);
       storeThemeMode(isDarkMode: true);
+      log(themeMode.toString());
     }
   }
 
   ThemeMode get themeMode =>
       getThemeModeFromMemory() ? ThemeMode.dark : ThemeMode.light;
 
-  @override
-  Color backGround() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.background
-      : LightThemeColors.background;
-
-  @override
-  Color error() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.error
-      : LightThemeColors.error;
-
-  @override
-  Color highLight() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.highLight
-      : LightThemeColors.highLight;
-
-  @override
-  Color primary() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.primary
-      : LightThemeColors.primary;
-
-  @override
-  Color secBackground() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.secondaryBackground
-      : LightThemeColors.secondaryBackground;
-
-  @override
-  Color secPrimary() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.secPrimary
-      : LightThemeColors.secPrimary;
-
-  @override
-  Color tertiaryBackground() => themeMode == ThemeMode.dark
-      ? DarkThemeColors.tertiaryBackground
-      : LightThemeColors.tertiaryBackground;
+ 
 }
