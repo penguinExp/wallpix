@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'widgets/home_app_bar.widget.dart';
 import 'widgets/home_body.widget.dart';
@@ -21,4 +20,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
