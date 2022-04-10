@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wallpix/injection_container.dart' as sl;
+import 'package:wallpix/views/home/presentation/blocs/imgBloc/img_bloc.dart';
 import 'designs/designs.e.dart';
 import 'services/theme/theme.service.impl.dart';
 import 'views/home/presentation/blocs/themeCubit/theme_cubit.dart';
@@ -42,8 +44,18 @@ class WallPix extends StatelessWidget {
             onPrimary: DarkThemeColors.highLight,
           ),
         ),
-        home: BlocProvider(
-          create: (_) => ThemeCubit(),
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (_) => ThemeCubit(),
+            ),
+            BlocProvider(
+              create: (_) => sl.sl<ImgBloc>()
+                ..add(
+                  GetCuratedImgEvent(),
+                ),
+            )
+          ],
           child: const HomeView(),
         ),
         builder: ((context, child) {

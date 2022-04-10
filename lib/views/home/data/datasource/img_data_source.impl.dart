@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:wallpix/core/core.e.dart';
 import 'package:wallpix/views/home/data/datasource/imgs_data_source.c.dart';
@@ -42,16 +43,19 @@ class ImgDataSourceImpl implements ImgDataSource {
     final uri = Uri.parse(
       query == null
           ? 'https://api.unsplash.com/photos?page=$page&client_id=$kAccessKey&per_page=50'
-          : 'https://api.unsplash.com/photos?page=1&client_id=$kAccessKey&per_page=50&query=$query',
+          : 'https://api.unsplash.com/search/photos?page=1&client_id=$kAccessKey&per_page=50&query=$query',
     );
     final response = await httpClient.get(uri);
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       final decodedResponse = jsonDecode(response.body);
-      imgListUseCaseContract.totalPages = decodedResponse['total_pages'];
-      final List<dynamic> results = decodedResponse['results'];
+      if (query != null) {
+        imgListUseCaseContract.totalPages = decodedResponse["total_pages"];
+      }
+      final List<dynamic> results = query != null ? decodedResponse["results"] : decodedResponse;
       for (int i = 0; i < results.length; i++) {
         imgListUseCaseContract.imgs.add(ImgModel.fromJson(results[i]));
+        
       }
       return imgListUseCaseContract.imgs;
     } else {

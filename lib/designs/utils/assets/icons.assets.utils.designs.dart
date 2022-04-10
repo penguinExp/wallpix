@@ -6,3 +6,4 @@ class IconAssets {
   static const String searchIcon = 'assets/icons/searchIcon.svg';
   static const String sunIcon = 'assets/icons/sunIcon.svg';
 }
+

@@ -1,14 +1,14 @@
 import 'package:wallpix/core/core.e.dart';
 import 'package:dartz/dartz.dart';
 import 'package:wallpix/core/services/network_connectivity.service.dart';
-import 'package:wallpix/views/home/data/datasource/imgs_data_source.c.dart';
+import 'package:wallpix/views/home/data/datasource/img_data_source.impl.dart';
 import 'package:wallpix/views/home/domain/domain.e.dart';
 
 typedef _GetSearchCuratedOrMore = Future<List<ImgEntity>> Function();
 
 class ImgRepositoryImpl implements ImgRepository {
-  final ImgDataSource imgDataSource;
-  final NetworkInfo networkInfo;
+  final ImgDataSourceImpl imgDataSource;
+  final NetWorkInfoImpl networkInfo;
 
   ImgRepositoryImpl({
     required this.imgDataSource,
