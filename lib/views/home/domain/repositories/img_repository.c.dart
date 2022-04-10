@@ -6,5 +6,5 @@ abstract class ImgRepository {
   Future<Either<CustomFailure, List<ImgEntity>>> searchImgs(
       {required String query});
   Future<Either<CustomFailure, List<ImgEntity>>> getCuratedImgs();
-  Future<Either<CustomFailure, List<ImgEntity>>> getImgsFromNextPage({required int currentPage});
+  Future<Either<CustomFailure, List<ImgEntity>>> getImgsFromNextPage({required int currentPage, String? query});
 }

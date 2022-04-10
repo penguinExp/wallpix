@@ -6,7 +6,7 @@ import 'package:wallpix/views/home/data/models/img.model.dart';
 import 'package:wallpix/views/home/domain/entities/img.entity.dart';
 import 'package:http/http.dart' as http;
 
-class ImgDataSourceImpl implements ImgsDataSource {
+class ImgDataSourceImpl implements ImgDataSource {
   final http.Client httpClient;
   final ImgListUseCaseContract imgListUseCaseContract;
 
