@@ -13,6 +13,8 @@ class GetCuratedImgUseCaseImpl
   @override
   Future<Either<CustomFailure, List<ImgEntity>>> call(
       CuratedImgParameters parameters) {
-    return imgRepository.getCuratedImgs();
+    return imgRepository.getCuratedImgs(
+      page: parameters.page,
+    );
   }
 }

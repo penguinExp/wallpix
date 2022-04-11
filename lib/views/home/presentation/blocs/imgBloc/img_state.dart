@@ -1,30 +1,23 @@
-part of 'img_bloc.dart';
+// part of 'img_bloc.dart';
 
-abstract class ImgState extends Equatable {
-  const ImgState();
+// abstract class ImgState extends Equatable {
+//   const ImgState();
 
-  @override
-  List<Object> get props => [];
-}
+//   @override
+//   List<Object> get props => [];
+// }
 
-class LoadingState extends ImgState {}
+// class LoadingState extends ImgState {}
 
-class LoadingMoreState extends ImgState {}
+// class LoadingMoreState extends ImgState {}
 
-class LoadedState extends ImgState {
-  final List<ImgEntity> imgList;
+// class LoadedState extends ImgState {}
 
-  const LoadedState({required this.imgList});
+// class ErrorState extends ImgState {
+//   final String errorMsg;
 
-  @override
-  List<Object> get props => [imgList];
-}
+//   const ErrorState({required this.errorMsg});
 
-class ErrorState extends ImgState {
-  final String errorMsg;
-
-  const ErrorState({required this.errorMsg});
-
-  @override
-  List<Object> get props => [errorMsg];
-}
+//   @override
+//   List<Object> get props => [errorMsg];
+// }

@@ -13,6 +13,9 @@ class SearchImgUseCaseImpl
   @override
   Future<Either<CustomFailure, List<ImgEntity>>> call(
       SearchImgParameters parameters) {
-    return imgRepository.searchImgs(query: parameters.query);
+    return imgRepository.searchImgs(
+      query: parameters.query,
+      page: parameters.page,
+    );
   }
 }

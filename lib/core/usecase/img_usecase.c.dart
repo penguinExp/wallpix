@@ -7,22 +7,18 @@ abstract class ImgUsecase<Type, Parameters> {
 }
 
 class CuratedImgParameters extends Equatable {
+  final int page;
+
+  const CuratedImgParameters({required this.page});
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [page];
 }
 
 class SearchImgParameters extends Equatable {
   final String query;
+  final int page;
 
-  const SearchImgParameters({required this.query});
+  const SearchImgParameters({required this.query, required this.page});
   @override
-  List<Object?> get props => [query];
-}
-
-class GetMoreImgParameters extends Equatable {
-  final int currentPage;
-
-  const GetMoreImgParameters({required this.currentPage});
-  @override
-  List<Object?> get props => [];
+  List<Object?> get props => [query, page];
 }

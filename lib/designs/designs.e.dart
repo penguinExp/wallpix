@@ -9,7 +9,6 @@ export 'svg_icons.designs.dart';
 export 'text_styles.designs.dart';
 // Assets
 export 'utils/assets/icons.assets.utils.designs.dart';
-export 'utils/assets/animation.asset.util.design.dart';
 export 'utils/assets/k_transparent_img.asset.utils.designs.dart';
 //Colors
 export 'utils/colors/dark.colors.utils.designs.dart';

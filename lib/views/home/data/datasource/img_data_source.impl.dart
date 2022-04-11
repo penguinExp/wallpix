@@ -1,22 +1,22 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:wallpix/core/core.e.dart';
 import 'package:wallpix/views/home/data/datasource/imgs_data_source.c.dart';
 import 'package:wallpix/views/home/data/models/img.model.dart';
 import 'package:wallpix/views/home/domain/entities/img.entity.dart';
 import 'package:http/http.dart' as http;
+import 'package:wallpix/injection_container.dart' as sl;
 
 class ImgDataSourceImpl implements ImgDataSource {
   final http.Client httpClient;
-  final ImgListUseCaseContract imgListUseCaseContract;
 
-  ImgDataSourceImpl(
-      {required this.httpClient, required this.imgListUseCaseContract});
+  ImgDataSourceImpl({
+    required this.httpClient,
+  });
 
   @override
-  Future<List<ImgEntity>> getCuratedImg() async {
-    return _getImgsFromDataSource(page: 1);
+  Future<List<ImgEntity>> getCuratedImg({required int page}) async {
+    return _getImgsFromDataSource(page: page);
   }
 
   @override
@@ -29,9 +29,9 @@ class ImgDataSourceImpl implements ImgDataSource {
   }
 
   @override
-  Future<List<ImgEntity>> searchImg({required String query}) async {
+  Future<List<ImgEntity>> searchImg({required String query, required int page}) async {
     return _getImgsFromDataSource(
-      page: 1,
+      page: page,
       query: query,
     );
   }
@@ -49,15 +49,14 @@ class ImgDataSourceImpl implements ImgDataSource {
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       final decodedResponse = jsonDecode(response.body);
-      if (query != null) {
-        imgListUseCaseContract.totalPages = decodedResponse["total_pages"];
-      }
-      final List<dynamic> results = query != null ? decodedResponse["results"] : decodedResponse;
+
+      final List<dynamic> results =
+          query != null ? decodedResponse["results"] : decodedResponse;
+      final List<ImgEntity> images = [];
       for (int i = 0; i < results.length; i++) {
-        imgListUseCaseContract.imgs.add(ImgModel.fromJson(results[i]));
-        
+        images.add(ImgModel.fromJson(results[i]));
       }
-      return imgListUseCaseContract.imgs;
+      return images;
     } else {
       throw ServerFailure();
     }

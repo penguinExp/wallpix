@@ -16,28 +16,24 @@ class ImgRepositoryImpl implements ImgRepository {
   });
 
   @override
-  Future<Either<CustomFailure, List<ImgEntity>>> getCuratedImgs() async {
+  Future<Either<CustomFailure, List<ImgEntity>>> getCuratedImgs({
+    required int page,
+  }) async {
     return await _getImgFromDataSource(
-      getSearchCuratedOrMore: () => imgDataSource.getCuratedImg(),
+      getSearchCuratedOrMore: () => imgDataSource.getCuratedImg(page: page),
     );
   }
 
   @override
-  Future<Either<CustomFailure, List<ImgEntity>>> getImgsFromNextPage(
-      {required int currentPage, String? query}) async {
+  Future<Either<CustomFailure, List<ImgEntity>>> searchImgs({
+    required String query,
+    required int page,
+  }) async {
     return await _getImgFromDataSource(
-      getSearchCuratedOrMore: () => imgDataSource.getImgFromNextPage(
-        currentPage: currentPage,
+      getSearchCuratedOrMore: () => imgDataSource.searchImg(
         query: query,
+        page: page,
       ),
-    );
-  }
-
-  @override
-  Future<Either<CustomFailure, List<ImgEntity>>> searchImgs(
-      {required String query}) async {
-    return await _getImgFromDataSource(
-      getSearchCuratedOrMore: () => imgDataSource.searchImg(query: query),
     );
   }
 
