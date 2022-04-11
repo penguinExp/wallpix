@@ -5,7 +5,6 @@ import 'package:wallpix/views/home/data/datasource/imgs_data_source.c.dart';
 import 'package:wallpix/views/home/data/models/img.model.dart';
 import 'package:wallpix/views/home/domain/entities/img.entity.dart';
 import 'package:http/http.dart' as http;
-import 'package:wallpix/injection_container.dart' as sl;
 
 class ImgDataSourceImpl implements ImgDataSource {
   final http.Client httpClient;
@@ -19,14 +18,6 @@ class ImgDataSourceImpl implements ImgDataSource {
     return _getImgsFromDataSource(page: page);
   }
 
-  @override
-  Future<List<ImgEntity>> getImgFromNextPage(
-      {required int currentPage, String? query}) async {
-    return _getImgsFromDataSource(
-      page: currentPage + 1,
-      query: query,
-    );
-  }
 
   @override
   Future<List<ImgEntity>> searchImg({required String query, required int page}) async {

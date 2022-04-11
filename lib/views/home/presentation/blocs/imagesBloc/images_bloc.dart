@@ -16,7 +16,9 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
     required this.getCuratedImgUseCase,
     required this.searchImgUseCase,
   }) : super(const ImagesState()) {
+    
     on<ImagesFetched>((event, emit) async {
+      
       late Either<CustomFailure, List<ImgEntity>> failureOrImgs;
 
       // Condition to check if the total images value is reached
@@ -83,7 +85,9 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
                   hasReachedEnd: false,
                 );
         },
+        
       );
-    });
+
+    },);
   }
 }

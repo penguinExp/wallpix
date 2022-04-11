@@ -1,16 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wallpix/core/routes/routes.dart';
-import 'package:wallpix/injection_container.dart' as sl;
-import 'package:wallpix/views/home/presentation/blocs/imgBloc/img_bloc.dart';
 import 'designs/designs.e.dart';
 import 'services/theme/theme.service.impl.dart';
-import 'views/home/presentation/blocs/themeCubit/theme_cubit.dart';
-import 'views/home/presentation/home.view.dart';
 
 class WallPix extends StatelessWidget {
   const WallPix({Key? key}) : super(key: key);
