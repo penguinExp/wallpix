@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,18 +26,38 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
   final ScrollController scrollController = ScrollController();
 
   int page = 1;
+  Timer? timer;
+
   @override
   void initState() {
-    scrollController.addListener(_scrollListener);
     super.initState();
+    scrollController.addListener(_scrollListener);
   }
 
   void _scrollListener() {
     if (_isAtBottom) {
-      // log('message');
-      // context.read<ImagesBloc>().state.copyWith(query: textController.text);
-      // context.read<ImagesBloc>().add(ImagesFetched());
+      debounce(() {
+        log('getting more images');
+        context.read<ImagesBloc>().add(
+              ImagesFetched(
+                query: textController.text,
+                page: page + 1,
+              ),
+            );
+      });
     }
+  }
+
+  void debounce(
+    VoidCallback callback, {
+    Duration duration = const Duration(
+      seconds: 3,
+    ),
+  }) {
+    if (timer != null) {
+      timer!.cancel();
+    }
+    timer = Timer(duration, callback);
   }
 
   bool get _isAtBottom {
@@ -46,11 +69,12 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
 
   @override
   void dispose() {
+    super.dispose();
     textController.dispose();
     scrollController
       ..removeListener(_scrollListener)
       ..dispose();
-    super.dispose();
+    timer?.cancel();
   }
 
   @override

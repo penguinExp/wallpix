@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpix/designs/designs.e.dart';
+import 'package:wallpix/views/img/widgets/image_download_button.widget.dart';
 
 class ImageView extends StatelessWidget {
   final String downloadLink;
@@ -39,12 +41,8 @@ class ImageView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                DesignButton.defaultBtn(
-                  onTap: () {},
-                  btnText: 'Download',
-                  bgColor: Theme.of(context).colorScheme.onBackground,
-                  icon: DesignIcon.downloadIcon(
-                      color: Theme.of(context).primaryColor),
+                DownloadButtonWidget(
+                  downloadLink: downloadLink,
                 ),
                 SizedBox(
                   height: 20.h,
@@ -53,6 +51,7 @@ class ImageView extends StatelessWidget {
                   onTap: () {
                     Get.back();
                   },
+                  textcolor: Theme.of(context).primaryColor,
                   btnText: 'Cancel',
                   bgColor: Theme.of(context).colorScheme.tertiaryContainer,
                 ),

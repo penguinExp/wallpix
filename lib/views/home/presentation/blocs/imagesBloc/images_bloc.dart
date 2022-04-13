@@ -51,7 +51,6 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
           if (!state.isSearching && event.query.isNotEmpty) {
             emit(
               state.copyWith(
-                status: ImagesBlocStatus.loading,
                 isSearching: true,
               ),
             );
@@ -79,7 +78,7 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
           } else if (state.isSearching && event.query.trimRight().isEmpty) {
             emit(
               state.copyWith(
-                status: ImagesBlocStatus.loading,
+                // status: ImagesBlocStatus.loading,
                 isSearching: false,
               ),
             );
@@ -105,7 +104,7 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
           } else {
             emit(
               state.copyWith(
-                status: ImagesBlocStatus.loading,
+                // status: ImagesBlocStatus.loading,
                 isSearching: false,
               ),
             );

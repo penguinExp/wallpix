@@ -10,16 +10,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const HomeAppBar(),
-            SizedBox(
-              height: 10.h,
-            ),
-            const Expanded(child: HomeBodyWidget()),
-          ],
-        ),
+      body: Column(
+        children: [
+          const HomeAppBar(),
+          SizedBox(
+            height: 10.h,
+          ),
+          const Expanded(child: HomeBodyWidget()),
+        ],
       ),
     );
   }
