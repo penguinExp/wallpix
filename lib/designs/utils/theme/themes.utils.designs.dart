@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../designs.design.dart';
+import '../../designs.e.dart';
 
 class ThemeUtil {
   static ThemeData lightTheme() => ThemeData().copyWith(
         scaffoldBackgroundColor: LightThemeColors.background,
         brightness: Brightness.light,
         textTheme: const TextTheme().apply(
-          bodyColor: LightThemeColors.primery,
+          bodyColor: LightThemeColors.primary,
         ),
       );
 
@@ -15,7 +15,7 @@ class ThemeUtil {
         scaffoldBackgroundColor: DarkThemeColors.background,
         brightness: Brightness.dark,
         textTheme: const TextTheme().apply(
-          bodyColor: DarkThemeColors.primery,
+          bodyColor: DarkThemeColors.primary,
         ),
       );
 }

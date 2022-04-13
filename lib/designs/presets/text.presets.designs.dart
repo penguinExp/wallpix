@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../designs.design.dart';
+import '../designs.e.dart';
 
 class TextPresets {
   static TextStyle headingOne(Color? color) => FontsUtil.nunito(
@@ -13,6 +13,18 @@ class TextPresets {
   static TextStyle headingTwo(Color? color) => FontsUtil.nunito(
         fontSize: 40.5.sp,
         fontWeight: FontWeight.w700,
+        color: color,
+      );
+
+  static TextStyle title(Color? color) => FontsUtil.nunito(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w700,
+        color: color,
+      );
+
+  static TextStyle headingThreeBig(Color? color) => FontsUtil.nunito(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w600,
         color: color,
       );
 

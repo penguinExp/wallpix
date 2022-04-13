@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../core/core.dart';
-import 'designs.design.dart';
+import 'designs.e.dart';
 
 class DesignButton extends StatelessWidget {
   final double? width;
@@ -14,17 +13,17 @@ class DesignButton extends StatelessWidget {
   final void Function() onTap;
   final Widget? icon;
 
-  DesignButton.defaultBtn({
+  const DesignButton.defaultBtn({
     Key? key,
     this.width,
     this.height,
     required this.onTap,
     required this.btnText,
+    required this.bgColor,
     this.isLoading = false,
     this.icon,
     this.textcolor,
-  })  : bgColor = themeService.secBackground(),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
