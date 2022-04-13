@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wallpaper/wallpaper.dart';
 
 import '../../../designs/designs.e.dart';
@@ -16,20 +17,23 @@ class DownloadButtonWidget extends StatefulWidget {
 
 class _DownloadButtonWidgetState extends State<DownloadButtonWidget> {
   bool isDownloading = false;
+  bool isDownloaded = false;
   String downloadProgress = '0';
   @override
   Widget build(BuildContext context) {
-    return DesignButton.defaultBtn(
-      onTap: () {},
-      textcolor: Theme.of(context).primaryColor,
-      btnText: isDownloading ? '$downloadProgress %' : 'Download',
-      bgColor: Theme.of(context).colorScheme.onBackground,
-      icon: isDownloading
-          ? null
-          : DesignIcon.downloadIcon(
-              color: Theme.of(context).primaryColor,
-            ),
-    );
+    return isDownloaded
+        ? Container()
+        : DesignButton.defaultBtn(
+            onTap: () async => await downloadAndSetWallPaper(),
+            textcolor: Theme.of(context).primaryColor,
+            btnText: isDownloading ? downloadProgress : 'Download',
+            bgColor: Theme.of(context).colorScheme.onBackground,
+            icon: isDownloading
+                ? null
+                : DesignIcon.downloadIcon(
+                    color: Theme.of(context).primaryColor,
+                  ),
+          );
   }
 
   Future<void> downloadAndSetWallPaper() async {
@@ -47,6 +51,12 @@ class _DownloadButtonWidgetState extends State<DownloadButtonWidget> {
         onDone: () {
           setState(() {
             isDownloading = false;
+            isDownloaded = true;
+            Get.snackbar(
+              'Success',
+              'WallPaper set successfully on home screen',
+              duration: const Duration(seconds: 3),
+            );
           });
           Wallpaper.homeScreen();
         },

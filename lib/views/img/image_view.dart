@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper/wallpaper.dart';
 import 'package:wallpix/designs/designs.e.dart';
 import 'package:wallpix/views/img/widgets/image_download_button.widget.dart';
 
