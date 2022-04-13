@@ -23,7 +23,7 @@ class WallPixPages {
           BlocProvider(
             create: (_) => sl.sl<ImagesBloc>()
               ..add(
-                ImagesFetched(),
+                const ImagesFetched(),
               ),
           )
         ],

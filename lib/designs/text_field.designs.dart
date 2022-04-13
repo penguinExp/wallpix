@@ -10,6 +10,7 @@ class DesignTextField extends StatelessWidget {
   final void Function()? onFieldTap;
   final bool isFocused;
   final Color highLightColor, secBgColor;
+  final FocusNode? focusNode;
 
   const DesignTextField({
     Key? key,
@@ -21,6 +22,7 @@ class DesignTextField extends StatelessWidget {
     this.isFocused = false,
     required this.highLightColor,
     required this.secBgColor,
+    this.focusNode,
   }) : super(key: key);
 
   @override
@@ -43,6 +45,7 @@ class DesignTextField extends StatelessWidget {
         children: [
           Expanded(
               child: TextField(
+            focusNode: focusNode,
             style:
                 TextPresets.headingFourSemiBold(Theme.of(context).primaryColor),
             controller: textEditingController,

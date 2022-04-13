@@ -4,46 +4,43 @@ enum ImagesBlocStatus {
   initial,
   success,
   failure,
+  loading,
 }
 
 class ImagesState extends Equatable {
   final ImagesBlocStatus status;
   final List<ImgEntity> images;
   final bool hasReachedEnd;
-  final String query;
-  final int page;
-  final String errMsg;
+  final String errorMsg;
+  final bool isSearching;
 
   const ImagesState({
     this.status = ImagesBlocStatus.initial,
     this.images = const <ImgEntity>[],
     this.hasReachedEnd = false,
-    this.query = '',
-    this.page = 1,
-    this.errMsg = '',
+    this.errorMsg = '',
+    this.isSearching = false,
   });
 
   ImagesState copyWith({
     ImagesBlocStatus? status,
     List<ImgEntity>? images,
     bool? hasReachedEnd,
-    int? page,
-    String? query,
-    String? errMsg,
+    String? errorMsg,
+    bool? isSearching,
   }) {
     return ImagesState(
       status: status ?? this.status,
       images: images ?? this.images,
       hasReachedEnd: hasReachedEnd ?? this.hasReachedEnd,
-      page: page ?? this.page,
-      query: query ?? this.query,
-      errMsg: errMsg ?? this.errMsg,
+      errorMsg: errorMsg ?? this.errorMsg,
+      isSearching: isSearching ?? this.isSearching,
     );
   }
 
   @override
   String toString() {
-    return '''ImagesState { status: $status, hasReachedEnd: $hasReachedEnd, images: ${images.length} , page: $page, query: $query, errMsg: $errMsg }''';
+    return '''ImagesState { status: $status, hasReachedEnd: $hasReachedEnd, images: ${images.length} , errorMsg: $errorMsg }, isSearching: $isSearching ''';
   }
 
   @override
@@ -51,8 +48,7 @@ class ImagesState extends Equatable {
         status,
         images,
         hasReachedEnd,
-        page,
-        query,
-        errMsg,
+        errorMsg,
+        isSearching,
       ];
 }

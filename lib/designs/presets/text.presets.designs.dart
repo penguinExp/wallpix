@@ -16,6 +16,18 @@ class TextPresets {
         color: color,
       );
 
+  static TextStyle title(Color? color) => FontsUtil.nunito(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w700,
+        color: color,
+      );
+
+  static TextStyle headingThreeBig(Color? color) => FontsUtil.nunito(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w600,
+        color: color,
+      );
+
   static TextStyle headingThree(Color? color) => FontsUtil.nunito(
         fontSize: 24.sp,
         fontWeight: FontWeight.w600,

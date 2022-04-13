@@ -21,6 +21,20 @@ class DesignText extends StatelessWidget {
   })  : style = TextPresets.headingTwo(color),
         super(key: key);
 
+  DesignText.title({
+    Key? key,
+    required this.text,
+    this.color,
+  })  : style = TextPresets.title(color),
+        super(key: key);
+
+  DesignText.headingThreeBig({
+    Key? key,
+    required this.text,
+    this.color,
+  })  : style = TextPresets.headingThreeBig(color),
+        super(key: key);
+
   DesignText.headingThree({
     Key? key,
     required this.text,
@@ -47,6 +61,7 @@ class DesignText extends StatelessWidget {
     return Text(
       text,
       style: style,
+      textAlign: TextAlign.center,
     );
   }
 }

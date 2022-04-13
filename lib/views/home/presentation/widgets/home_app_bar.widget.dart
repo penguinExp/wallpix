@@ -13,17 +13,18 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(30.w, 60.h, 30.w, 10.h),
+      padding: EdgeInsets.fromLTRB(30.w, 48.h, 30.w, 15.h),
       color: Theme.of(context).colorScheme.background,
       child: Row(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DesignText.headingOne(
+              DesignText.title(
                 text: 'WallPix',
                 color: Theme.of(context).primaryColor,
               ),
-              DesignText.headingOne(
+              DesignText.title(
                 text: '.',
                 color: Theme.of(context).colorScheme.onPrimary,
               )

@@ -9,7 +9,7 @@ export 'img_urls.entity.dart';
 
 class ImgEntity extends Equatable {
   final String id;
-  final int likes;
+  final String blurHash;
   final ImgUrlsEntity urls;
   final ImgLinksEntity links;
 
@@ -17,9 +17,9 @@ class ImgEntity extends Equatable {
     required this.urls,
     required this.links,
     required this.id,
-    required this.likes,
+    required this.blurHash,
   });
 
   @override
-  List<Object?> get props => [id, urls, links, likes];
+  List<Object?> get props => [id, urls, links, blurHash];
 }

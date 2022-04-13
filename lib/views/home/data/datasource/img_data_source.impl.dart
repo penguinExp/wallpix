@@ -33,8 +33,8 @@ class ImgDataSourceImpl implements ImgDataSource {
   }) async {
     final uri = Uri.parse(
       query == null
-          ? 'https://api.unsplash.com/photos?page=$page&client_id=$kAccessKey&per_page=50'
-          : 'https://api.unsplash.com/search/photos?page=1&client_id=$kAccessKey&per_page=50&query=$query',
+          ? 'https://api.unsplash.com/photos?page=$page&client_id=$kAccessKey&per_page=70'
+          : 'https://api.unsplash.com/search/photos?page=1&client_id=$kAccessKey&per_page=70&query=$query',
     );
     final response = await httpClient.get(uri);
 

@@ -1,12 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 import 'package:wallpix/views/home/presentation/blocs/imagesBloc/images_bloc.dart';
-import '../../../../designs/text_field.designs.dart';
+import 'package:wallpix/views/home/presentation/widgets/components/search_bar.widget.dart';
+import 'package:wallpix/views/home/presentation/widgets/components/topics_widget.dart';
+import 'package:wallpix/views/img/image_view.dart';
 
 import '../../../../designs/designs.e.dart';
 
@@ -21,8 +22,7 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
   final TextEditingController textController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
-  double currentOffset = 0;
-
+  int page = 1;
   @override
   void initState() {
     scrollController.addListener(_scrollListener);
@@ -33,7 +33,7 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
     if (_isAtBottom) {
       // log('message');
       // context.read<ImagesBloc>().state.copyWith(query: textController.text);
-      context.read<ImagesBloc>().add(ImagesFetched());
+      // context.read<ImagesBloc>().add(ImagesFetched());
     }
   }
 
@@ -57,37 +57,37 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DesignTextField(
-          isFocused: true,
-          textEditingController: textController,
-          hintTxt: 'Search WallPix',
-          highLightColor: Theme.of(context).colorScheme.onPrimary,
-          secBgColor: Theme.of(context).colorScheme.onBackground,
-          suffixIcon: DesignIcon.searchIcon(
-            color: Theme.of(context).primaryColor,
-          ),
-          onIconTap: () {
-            context
-                .read<ImagesBloc>()
-                .state
-                .copyWith(query: textController.text);
-            context.read<ImagesBloc>().add(ImagesFetched());
-            log(textController.text);
-          },
+        AppBarWidget(
+          textController: textController,
+          page: page,
         ),
         SizedBox(
           height: 20.h,
+        ),
+        SizedBox(
+          height: 100.h,
+          child: TopicsWidget(
+            controller: textController,
+          ),
+        ),
+        SizedBox(
+          height: 25.h,
         ),
         Flexible(
           child: BlocBuilder<ImagesBloc, ImagesState>(
             builder: (context, state) {
               switch (state.status) {
                 case ImagesBlocStatus.success:
-                  if (state.query.isNotEmpty && state.images.isEmpty) {
+                  if (textController.text.isNotEmpty && state.images.isEmpty) {
                     return Center(
-                      child: DesignText.headingFourSemiBold(
-                        text:
-                            "WallPix couldn’t find anything for “${state.query}”.Try to refine your search.",
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                        ),
+                        child: DesignText.headingFourSemiBold(
+                          text:
+                              "WallPix couldn’t find anything for “${textController.text}”.Try to refine your search.",
+                        ),
                       ),
                     );
                   } else if (state.images.isEmpty) {
@@ -99,21 +99,44 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
                     );
                   } else {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.w),
-                      child: _imgListView(state),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 30.w,
+                      ),
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: _imgListView(state),
+                          ),
+                          (state.status == ImagesBlocStatus.loading)
+                              ? Center(
+                                  child: Container(
+                                      margin: EdgeInsets.only(
+                                        top: 10.h,
+                                      ),
+                                      child: const CircularProgressIndicator()),
+                                )
+                              : Container()
+                        ],
+                      ),
                     );
                   }
                 case ImagesBlocStatus.failure:
                   return Center(
                     child: DesignText.headingFourSemiBold(
-                      text: state.errMsg,
+                      text: state.errorMsg,
                     ),
                   );
                 default:
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
               }
             },
           ),
+        ),
+        SizedBox(
+          height: 10.h,
         ),
       ],
     );
@@ -122,24 +145,33 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
   MasonryGridView _imgListView(ImagesState state) {
     return MasonryGridView.count(
       controller: scrollController,
+      // shrinkWrap: true,
+      padding: const EdgeInsets.all(0),
       crossAxisSpacing: 20.w,
       mainAxisSpacing: 20.h,
       crossAxisCount: kIsWeb ? 3 : 2,
       itemCount: state.images.length,
+      physics: const ClampingScrollPhysics(),
       itemBuilder: (context, i) {
         return GridTile(
           child: GestureDetector(
-            onTap: (() {}),
+            onTap: (() {
+              Get.to(
+                () => ImageView(
+                  id: state.images[i].id,
+                  downloadLink: state.images[i].links.download,
+                  imageUrl: state.images[i].urls.full,
+                  blurHash: state.images[i].blurHash,
+                ),
+              );
+            }),
             child: Hero(
               tag: state.images[i].id,
-              child: SizedBox(
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  child: FadeInImage.memoryNetwork(
-                    fit: BoxFit.contain,
-                    placeholder: kTransparentImage,
-                    image: state.images[i].urls.regular,
-                  ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: DesignImage(
+                  imageUrl: state.images[i].urls.small,
+                  blurHash: state.images[i].blurHash,
                 ),
               ),
             ),

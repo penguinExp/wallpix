@@ -7,13 +7,18 @@ class ImgModel extends ImgEntity {
     required ImgUrlsModel urls,
     required ImgLinksModel links,
     required String id,
-    required int likes,
-  }) : super(urls: urls, links: links, id: id, likes: likes);
+    required String blurHash,
+  }) : super(
+          urls: urls,
+          links: links,
+          id: id,
+          blurHash: blurHash,
+        );
 
   factory ImgModel.fromJson(Map<String, dynamic> json) => ImgModel(
         id: json["id"],
         urls: ImgUrlsModel.fromJson(json['urls']),
         links: ImgLinksModel.fromJson(json['links']),
-        likes: json["likes"],
+        blurHash: json["blur_hash"],
       );
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:wallpix/core/core.e.dart';
 import 'package:dartz/dartz.dart';
 import 'package:wallpix/core/services/network_connectivity.service.dart';
@@ -39,7 +40,14 @@ class ImgRepositoryImpl implements ImgRepository {
 
   Future<Either<CustomFailure, List<ImgEntity>>> _getImgFromDataSource(
       {required _GetSearchCuratedOrMore getSearchCuratedOrMore}) async {
-    if (await networkInfo.isConnected) {
+    if (kIsWeb) {
+      try {
+        final result = await getSearchCuratedOrMore();
+        return Right(result);
+      } on ServerFailure {
+        return Left(ServerFailure());
+      }
+    } else if (await networkInfo.isConnected) {
       try {
         final result = await getSearchCuratedOrMore();
         return Right(result);
